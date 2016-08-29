@@ -1,0 +1,17 @@
+.bicycle .ground {
+  stroke: black;
+  stroke-width: 5;
+}
+
+.bicycle .wheel .tyre {
+  fill: black;
+}
+
+.bicycle .wheel .rim {
+  fill: white;
+}
+
+.bicycle .tube {
+  stroke-width: 3;
+  stroke: black;
+}

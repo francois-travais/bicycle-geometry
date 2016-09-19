@@ -1,70 +1,72 @@
 import React from 'react';
 import { Wheel } from './wheel';
 import { Tube } from './tube';
-import { computeRearTriangle, computeFrontAxle, computeFrontFrame } from '../bicycleMath';
-
-const centerWeelY = 800
 
 export class Bicycle extends React.Component {
   constructor(props) {
     super(props);
   }
   render() {
+    const centerWeelY = -Math.min(this.props.seatTubeTop.y, this.props.headTubeTop.y);
     const wheelRadius = this.props.wheelDiameter / 2;
-    const groundY = centerWeelY + wheelRadius
-    const rearAxle = {
-      x: wheelRadius,
-      y: centerWeelY
+    const ground = {
+      x: this.props.frontAxle.x + wheelRadius,
+      y: wheelRadius
     }
-    const {bb, seatTubeTop} = computeRearTriangle(
-      rearAxle,
-      this.props.chainStayLength,
-      this.props.bbDrop,
-      this.props.seatTubeAngle,
-      this.props.seatTubeLength);
-    const frontAxle = computeFrontAxle(rearAxle, this.props.wheelbase);
-    const {forkCrown, headTubeBottom, headTubeTop} = computeFrontFrame(
-      frontAxle,
-      this.props.headTubeLength,
-      this.props.headTubeAngle,
-      this.props.forkLength,
-      this.props.forkOffset,
-      20);
     return (
-      <g className='bicycle'>
+      <g className='bicycle' transform={'translate(0 ' + centerWeelY+')'}>
         <Wheel
           rimDiameter={this.props.rimDiameter}
           wheelDiameter={this.props.wheelDiameter}
-          axle={rearAxle}
+          axle={this.props.rearAxle}
           className='rear' />
         <Wheel
           rimDiameter={this.props.rimDiameter}
           wheelDiameter={this.props.wheelDiameter}
-          axle={frontAxle}
+          axle={this.props.frontAxle}
           className='front' />
-        <line x1={0} y1={groundY} x2={2500} y2={groundY} className="ground" />
-        <Tube pointA={rearAxle} pointB={bb} className='chainstay' />
-        <Tube pointA={bb} pointB={seatTubeTop} className='seattube' />
-        <Tube pointA={rearAxle} pointB={seatTubeTop} className='seatstay' />
-        <Tube pointA={bb} pointB={headTubeBottom} className='downtube' />
-        <Tube pointA={seatTubeTop} pointB={headTubeTop} className='toptube' />
-        <Tube pointA={headTubeTop} pointB={headTubeBottom} className='headtube' />
-        <Tube pointA={frontAxle} pointB={forkCrown} className='fork' />
+        <line x1={0} y1={ground.y} x2={ground.x} y2={ground.y} className="ground" />
+        <Tube pointA={this.props.rearAxle} pointB={this.props.bb} className='chainstay' />
+        <Tube pointA={this.props.bb} pointB={this.props.seatTubeTop} className='seattube' />
+        <Tube pointA={this.props.rearAxle} pointB={this.props.seatTubeTop} className='seatstay' />
+        <Tube pointA={this.props.bb} pointB={this.props.headTubeBottom} className='downtube' />
+        <Tube pointA={this.props.seatTubeTop} pointB={this.props.headTubeTop} className='toptube' />
+        <Tube pointA={this.props.headTubeTop} pointB={this.props.headTubeBottom} className='headtube' />
+        <Tube pointA={this.props.frontAxle} pointB={this.props.forkCrown} className='fork' />
       </g>
     )
   }
 }
 
 Bicycle.propTypes = {
+  rearAxle: React.PropTypes.shape({
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }).isRequired,
+  frontAxle: React.PropTypes.shape({
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }).isRequired,
+  bb: React.PropTypes.shape({
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }).isRequired,
+  seatTubeTop: React.PropTypes.shape({
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }).isRequired,
+  forkCrown: React.PropTypes.shape({
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }).isRequired,
+  headTubeBottom: React.PropTypes.shape({
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }).isRequired,
+  headTubeTop: React.PropTypes.shape({
+    x: React.PropTypes.number.isRequired,
+    y: React.PropTypes.number.isRequired
+  }).isRequired,
   rimDiameter: React.PropTypes.number.isRequired,
-  wheelDiameter: React.PropTypes.number.isRequired,
-  chainStayLength: React.PropTypes.number.isRequired,
-  bbDrop: React.PropTypes.number.isRequired,
-  seatTubeLength: React.PropTypes.number.isRequired,
-  seatTubeAngle: React.PropTypes.number.isRequired,
-  wheelbase: React.PropTypes.number.isRequired,
-  headTubeLength: React.PropTypes.number.isRequired,
-  headTubeAngle: React.PropTypes.number.isRequired,
-  forkLength: React.PropTypes.number.isRequired,
-  forkOffset: React.PropTypes.number.isRequired
+  wheelDiameter: React.PropTypes.number.isRequired
 }

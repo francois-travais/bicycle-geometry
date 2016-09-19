@@ -6,11 +6,11 @@ export class Wheel extends React.Component {
   }
   render() {
     return (
-      <g className='wheel ${this.props.styleName}'>
+      <g className={'wheel ' + this.props.styleName}>
         <circle cx={this.props.axle.x} cy={this.props.axle.y}
-          r={this.props.wheelDiameter / 2} className="tyre ${this.props.styleName}"/>
+          r={this.props.wheelDiameter / 2} className={'tyre '+this.props.styleName}/>
         <circle cx={this.props.axle.x} cy={this.props.axle.y}
-          r={this.props.rimDiameter / 2} className="rim ${this.props.styleName}"/>
+          r={this.props.rimDiameter / 2} className={'rim '+this.props.styleName}/>
       </g>
     )
   }

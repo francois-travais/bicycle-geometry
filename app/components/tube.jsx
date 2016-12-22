@@ -9,12 +9,13 @@ export class Tube extends React.Component {
       <line
         x1={this.props.pointA.x} y1={this.props.pointA.y}
         x2={this.props.pointB.x} y2={this.props.pointB.y}
-        className={'tube '+this.props.styleName} />
+        className={`tube ${this.props.styleName || ''}`} />
     )
   }
 }
 
 Tube.propTypes = {
+  styleName: React.PropTypes.string,
   pointA: React.PropTypes.shape({
     x: React.PropTypes.number.isRequired,
     y: React.PropTypes.number.isRequired

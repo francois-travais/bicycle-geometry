@@ -1,9 +1,10 @@
 import React from 'react';
-import { FormControl, FormGroup, ControlLabel, Col, Panel } from 'react-bootstrap';
+import { FormControl, FormGroup, ControlLabel, Col, Panel, Button } from 'react-bootstrap';
 
 export class GeometryForm extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {...props.bicycle};
     this.forkFormConfiguration = [
       {
         prop: 'wheelbase',
@@ -66,6 +67,11 @@ export class GeometryForm extends React.Component {
       }
     ];
     this.generateFormElements = this.generateFormElements.bind(this);
+    this.submit = this.submit.bind(this);
+    this.cancel = this.cancel.bind(this);
+  }
+  componentWillReceiveProps(nextProps) {
+    this.setState(...nextProps.bicycle);
   }
   generateFormElements(el) {
     return (
@@ -75,15 +81,23 @@ export class GeometryForm extends React.Component {
           type="text"
           onChange={(e) => this.onChange(el.prop, e)}
           placeholder={el.placeholder}
-          value={this.props.bicycle[el.prop]} />
+          value={this.state[el.prop]} />
       </FormGroup>
     );
   }
   onChange(prop, e) {
     const value = parseFloat(e.target.value);
-    let returnObj = Object.assign({}, this.props.bicycle)
-    returnObj[prop] = value;
-    this.props.onChange(returnObj);
+    this.setState((previousState, currentProps) => {
+      previousState[prop] = value;
+      return previousState;
+    })
+  }
+  cancel() {
+    this.setState(this.props.bicycle);
+  }
+  submit(e) {
+    e.preventDefault();
+    this.props.onChange(this.state);
   }
   render() {
     return (
@@ -101,6 +115,8 @@ export class GeometryForm extends React.Component {
             {this.forkFormConfiguration.map(this.generateFormElements)}
           </Panel>
         </Col>
+        <Button type="submit" onClick={this.submit}>Submit</Button>
+        <Button type="reset" onClick={this.cancel}>Cancel</Button>
       </form>
     )
   }

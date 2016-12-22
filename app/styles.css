@@ -4,14 +4,36 @@
 }
 
 .bicycle .wheel .tyre {
-  fill: black;
-}
-
-.bicycle .wheel .rim {
-  fill: white;
+  fill: transparent;
+  stroke: black;
 }
 
 .bicycle .tube {
   stroke-width: 3;
   stroke: black;
+}
+
+.tables .table .table-subtlt {
+  font-weight: bold;
+}
+
+.bicycle.bicycle-1 .tube, .bicycle.bicycle-1 .wheel .tyre {
+  stroke: blue;
+}
+.tables .table th.bicycle-1 {
+  color: blue;
+}
+
+.bicycle.bicycle-2 .tube, .bicycle.bicycle-2 .wheel .tyre {
+  stroke: red;
+}
+.tables .table th.bicycle-2 {
+  color: red;
+}
+
+.bicycle.bicycle-3 .tube, .bicycle.bicycle-3 .wheel .tyre {
+  stroke: green;
+}
+.tables .table th.bicycle-3 {
+  color: green;
 }

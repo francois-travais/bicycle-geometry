@@ -5,18 +5,19 @@ export class Wheel extends React.Component {
     super(props);
   }
   render() {
+    const tyreHeight = (this.props.wheelDiameter - this.props.rimDiameter) / 2;
+    const radius = this.props.wheelDiameter / 2 - tyreHeight / 2;
     return (
-      <g className={'wheel ' + this.props.styleName}>
+      <g className={`wheel ${this.props.styleName || ''}`}>
         <circle cx={this.props.axle.x} cy={this.props.axle.y}
-          r={this.props.wheelDiameter / 2} className={'tyre '+this.props.styleName}/>
-        <circle cx={this.props.axle.x} cy={this.props.axle.y}
-          r={this.props.rimDiameter / 2} className={'rim '+this.props.styleName}/>
+          r={radius} style={{strokeWidth: tyreHeight}} className={`tyre ${this.props.styleName || ''}`}/>
       </g>
     )
   }
 }
 
 Wheel.propTypes = {
+  styleName: React.PropTypes.string,
   rimDiameter: React.PropTypes.number.isRequired,
   wheelDiameter: React.PropTypes.number.isRequired,
   axle: React.PropTypes.shape({

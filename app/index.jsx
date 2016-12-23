@@ -27,7 +27,11 @@ from './components/measurementsTable'
 import {
   computeRearTriangle,
   computeFrontAxle,
-  computeFrontFrame
+  computeFrontFrame,
+  computeCenterFront,
+  computeReach,
+  computeStack,
+  computeWheelbase
 }
 from './bicycleMath';
 import bicycles from './bicycles';
@@ -71,7 +75,7 @@ export class BicycleGeometry extends React.Component {
       props.headTubeAngle,
       props.forkLength,
       props.forkOffset,
-      20);
+      0);
     return {
       rimDiameter: props.rimDiameter,
       wheelDiameter: props.wheelDiameter,
@@ -82,6 +86,14 @@ export class BicycleGeometry extends React.Component {
       forkCrown: forkCrown,
       headTubeBottom: headTubeBottom,
       headTubeTop: headTubeTop
+    }
+  }
+  getComputed(points) {
+    return {
+      wheelbase: computeWheelbase(points.frontAxle, points.rearAxle),
+      centerFront: computeCenterFront(points.bb, points.frontAxle),
+      stack: computeStack(points.bb, points.headTubeTop),
+      reach: computeReach(points.bb, points.headTubeTop)
     }
   }
   selectTmp(event) {
@@ -104,6 +116,7 @@ export class BicycleGeometry extends React.Component {
       return;
     }
     bicycle.points = this.computeBikePoints(bicycle.measures);
+    bicycle.computed = this.getComputed(bicycle.points);
     this.setState({
       selectedBicycles: this.state.selectedBicycles.concat([bicycle])
     });

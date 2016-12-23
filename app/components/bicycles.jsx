@@ -27,6 +27,9 @@ export class Bicycles extends React.Component {
     const maxY = this.props.bicycles
       .map(this.maxY)
       .reduce(this.max, -5000);
+    const groundX = this.props.bicycles
+      .map(this.groundX)
+      .reduce(this.max, -5000);
     return (
       <g className='aligned-bicycles'>
         {this.props.bicycles.map((bicycle, index) => {
@@ -38,6 +41,7 @@ export class Bicycles extends React.Component {
               <Bicycle key={bicycle.name} styleName={`bicycle-${index + 1}`} {...bicycle.points} translate={translate} />
           )}
         )}
+        <line x1={0} y1={maxY} x2={groundX} y2={maxY} className="ground" />
       </g>
     );
   }

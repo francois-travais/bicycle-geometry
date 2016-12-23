@@ -9,11 +9,6 @@ export class Bicycle extends React.Component {
   render() {
     const centerWeelY = -Math.min(this.props.seatTubeTop.y, this.props.headTubeTop.y);
     const translate = this.props.translate ? {x: this.props.translate.x, y: this.props.translate.y + centerWeelY} : {x: 0, y: centerWeelY};
-    const wheelRadius = this.props.wheelDiameter / 2;
-    const ground = {
-      x: this.props.frontAxle.x + wheelRadius,
-      y: wheelRadius
-    }
     return (
       <g className={`bicycle ${this.props.styleName || ''}`} transform={`translate(${translate.x} ${translate.y})`}>
         <Wheel
@@ -26,7 +21,6 @@ export class Bicycle extends React.Component {
           wheelDiameter={this.props.wheelDiameter}
           axle={this.props.frontAxle}
           styleName='front' />
-        <line x1={0} y1={ground.y} x2={ground.x} y2={ground.y} className="ground" />
         <Tube pointA={this.props.rearAxle} pointB={this.props.bb} styleName='chainstay' />
         <Tube pointA={this.props.bb} pointB={this.props.seatTubeTop} styleName='seattube' />
         <Tube pointA={this.props.rearAxle} pointB={this.props.seatTubeTop} styleName='seatstay' />

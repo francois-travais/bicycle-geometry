@@ -60,3 +60,19 @@ export function computeFrontFrame(frontAxle, headTubeLength, headTubeAngle, fork
     headTubeTop: headTubeTop
   };
 }
+
+export function computeWheelbase(frontAxle, rearAxle) {
+  return frontAxle.x - rearAxle.x;
+}
+
+export function computeCenterFront(bb, frontAxle) {
+  return frontAxle.x - bb.x;
+}
+
+export function computeReach(bb, headTubeTop) {
+  return headTubeTop.x - bb.x;
+}
+
+export function computeStack(bb, headTubeTop) {
+  return -(headTubeTop.y - bb.y);
+}

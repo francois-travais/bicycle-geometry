@@ -55,8 +55,26 @@ export class MeasurementsTable extends React.Component {
       unit: 'mm',
       title: 'Wheel diameter'
     }];
+    this.computedConfiguration = [{
+      prop: 'wheelbase',
+      unit: 'mm',
+      title: 'Wheelbase'
+    }, {
+      prop: 'centerFront',
+      unit: 'mm',
+      title: 'Center-Front'
+    }, {
+      prop: 'reach',
+      unit: 'mm',
+      title: 'Reach'
+    }, {
+      prop: 'stack',
+      unit: 'mm',
+      title: 'Stack'
+    }];
     this.unselect = this.unselect.bind(this);
     this.drawRow = this.drawRow.bind(this);
+    this.drawComputedRow = this.drawComputedRow.bind(this);
     this.subtlt = this.subtlt.bind(this);
   }
   drawRow(el) {
@@ -64,6 +82,13 @@ export class MeasurementsTable extends React.Component {
       <tr key={el.title}>
         <td>{el.title} ({el.unit})</td>
         {this.props.bicycles.map((bicycle) => (<td key={bicycle.name}>{bicycle.measures[el.prop]}</td>))}
+      </tr>);
+  }
+  drawComputedRow(el) {
+    return (
+      <tr key={el.title}>
+        <td>{el.title} ({el.unit})</td>
+        {this.props.bicycles.map((bicycle) => (<td key={bicycle.name}>{bicycle.computed[el.prop]}</td>))}
       </tr>);
   }
   unselect(name) {
@@ -84,6 +109,8 @@ export class MeasurementsTable extends React.Component {
           </tr>
         </thead>
         <tbody>
+          {this.subtlt('Computed')}
+          {this.computedConfiguration.map(this.drawComputedRow)}
           {this.subtlt('Frame')}
           {this.frameConfiguration.map(this.drawRow)}
           {this.subtlt('Fork')}
@@ -114,6 +141,12 @@ MeasurementsTable.propTypes = {
       headTubeAngle: React.PropTypes.number.isRequired,
       forkLength: React.PropTypes.number.isRequired,
       forkOffset: React.PropTypes.number.isRequired
+    }).isRequired,
+    computed: React.PropTypes.shape({
+      wheelbase: React.PropTypes.number.isRequired,
+      stack: React.PropTypes.number.isRequired,
+      reach: React.PropTypes.number.isRequired,
+      centerFront: React.PropTypes.number.isRequired
     }).isRequired
   })).isRequired,
   unselect: React.PropTypes.func.isRequired

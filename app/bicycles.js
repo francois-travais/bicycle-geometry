@@ -16,7 +16,10 @@ const bicycles = [{
     headTubeLength: 165,
     headTubeAngle: 71.5,
     forkLength: 405,
-    forkOffset: 50
+    forkOffset: 50,
+    topTubeEffectiveLength: 550,
+    stack: 609.1,
+    reach: 363.8
   }
 }, {
   name: 'salsa-vaya-2016-57',
@@ -36,7 +39,10 @@ const bicycles = [{
     headTubeLength: 185,
     headTubeAngle: 71.5,
     forkLength: 405,
-    forkOffset: 50
+    forkOffset: 50,
+    topTubeEffectiveLength: 570,
+    stack: 628,
+    reach: 372
   }
 }, {
   name: 'specialized-sequoia-2016-56',
@@ -50,13 +56,19 @@ const bicycles = [{
     wheelDiameter: 711,
     chainStayLength: 435.1,
     bbDrop: 66.5,
+    bbHeight: 292.5,
     seatTubeLength: 500,
     seatTubeAngle: 73.5,
     wheelbase: 1053,
     headTubeLength: 150,
     headTubeAngle: 71.5,
     forkLength: 400,
-    forkOffset: 50
+    forkOffset: 50,
+    forkTrail: 67,
+    stack: 584,
+    reach: 396.9,
+    centerFront: 626,
+    topTubeEffectiveLength: 570
   }
 }, {
   name: 'specialized-sequoia-2016-54',
@@ -70,13 +82,19 @@ const bicycles = [{
     wheelDiameter: 711,
     chainStayLength: 435.2,
     bbDrop: 67,
+    bbHeight: 292,
     seatTubeLength: 480,
     seatTubeAngle: 74,
     wheelbase: 1037,
     headTubeLength: 130,
     headTubeAngle: 71.5,
     forkLength: 400,
-    forkOffset: 50
+    forkOffset: 50,
+    forkTrail: 67,
+    stack: 566,
+    reach: 387.8,
+    centerFront: 611,
+    topTubeEffectiveLength: 550
   }
 }, {
   name: 'genesis-croix-de-fer-2016-M',
@@ -96,7 +114,10 @@ const bicycles = [{
     headTubeLength: 155,
     headTubeAngle: 71.5,
     forkLength: 400,
-    forkOffset: 50
+    forkOffset: 50,
+    forkTrail: 66,
+    stack: 591,
+    reach: 385
   }
 }, {
   name: 'genesis-croix-de-fer-2016-L',
@@ -116,7 +137,10 @@ const bicycles = [{
     headTubeLength: 175,
     headTubeAngle: 71.5,
     forkLength: 400,
-    forkOffset: 50
+    forkOffset: 50,
+    forkTrail: 66,
+    stack: 610,
+    reach: 395
   }
 }];
 

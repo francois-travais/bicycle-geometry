@@ -33,9 +33,9 @@ function computeForkAngleRad(headTubeAngleRad, forkOffset, forkLength) {
   return headTubeAngleRad - Math.asin(forkOffset / forkLength);
 }
 
-function computeHeadTubeBottom(forkCrown, headsetBottomLength, headTubeAngleRad) {
-  if (headsetBottomLength > 0) {
-    return computePointRad(forkCrown, headsetBottomLength, headTubeAngleRad);
+function computeHeadTubeBottom(forkCrown, headsetBottomHeight, headTubeAngleRad) {
+  if (headsetBottomHeight > 0) {
+    return computePointRad(forkCrown, headsetBottomHeight, headTubeAngleRad);
   } else {
     return forkCrown;
   }
@@ -48,11 +48,11 @@ export function computeFrontAxle(rearAxle, wheelbase) {
   }
 }
 
-export function computeFrontFrame(frontAxle, headTubeLength, headTubeAngle, forkLength, forkOffset, headsetBottomLength) {
+export function computeFrontFrame(frontAxle, headTubeLength, headTubeAngle, forkLength, forkOffset, headsetBottomHeight) {
   const headTubeAngleRad = degToRad(headTubeAngle);
   const forkAngleRad = computeForkAngleRad(headTubeAngleRad, forkOffset, forkLength);
   const forkCrown = computePointRad(frontAxle, forkLength, forkAngleRad);
-  const headTubeBottom = computeHeadTubeBottom(forkCrown, headsetBottomLength, headTubeAngleRad);
+  const headTubeBottom = computeHeadTubeBottom(forkCrown, headsetBottomHeight, headTubeAngleRad);
   const headTubeTop = computePointRad(headTubeBottom, headTubeLength, headTubeAngleRad);
   return {
     forkCrown: forkCrown,
@@ -75,4 +75,20 @@ export function computeReach(bb, headTubeTop) {
 
 export function computeStack(bb, headTubeTop) {
   return -(headTubeTop.y - bb.y);
+}
+
+function computeTrailRad(headTubeAngleRad, forkOffset, wheelRadius) {
+  return (wheelRadius * Math.cos(headTubeAngleRad) - forkOffset) / Math.sin(headTubeAngleRad);
+}
+
+export function computeTrail(headTubeAngle, forkOffset, wheelDiameter) {
+  return computeTrailRad(degToRad(headTubeAngle), forkOffset, wheelDiameter / 2);
+}
+
+export function computeTotalLength(frontAxleX, wheelDiameter) {
+  return frontAxleX + wheelDiameter / 2;
+}
+
+export function computeBBHeight(bbY, wheelDiameter) {
+  return wheelDiameter / 2 - bbY;
 }

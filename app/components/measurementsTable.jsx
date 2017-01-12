@@ -20,6 +20,10 @@ export class MeasurementsTable extends React.Component {
       prop: 'forkOffset',
       unit: 'mm',
       title: 'Fork offset'
+    }, {
+      prop: 'headsetBottomHeight',
+      unit: 'mm',
+      title: 'Headset bottom height'
     }];
     this.frameConfiguration = [{
       prop: 'seatTubeLength',
@@ -71,6 +75,18 @@ export class MeasurementsTable extends React.Component {
       prop: 'stack',
       unit: 'mm',
       title: 'Stack'
+    }, {
+      prop: 'forkTrail',
+      unit: 'mm',
+      title: 'Trail'
+    }, {
+      prop: 'totalLength',
+      unit: 'mm',
+      title: 'Bike length'
+    }, {
+      prop: 'bbHeight',
+      unit: 'mm',
+      title: 'BB height'
     }];
     this.unselect = this.unselect.bind(this);
     this.drawRow = this.drawRow.bind(this);
@@ -88,7 +104,7 @@ export class MeasurementsTable extends React.Component {
     return (
       <tr key={el.title}>
         <td>{el.title} ({el.unit})</td>
-        {this.props.bicycles.map((bicycle) => (<td key={bicycle.name}>{bicycle.computed[el.prop]}</td>))}
+        {this.props.bicycles.map((bicycle) => (<td key={bicycle.name}>{Math.round(bicycle.computed[el.prop])}{el.prop in bicycle.measures ? ` (${Math.round(bicycle.computed[el.prop] - bicycle.measures[el.prop])})`:''}</td>))}
       </tr>);
   }
   unselect(name) {
@@ -134,6 +150,7 @@ MeasurementsTable.propTypes = {
       wheelDiameter: React.PropTypes.number.isRequired,
       chainStayLength: React.PropTypes.number.isRequired,
       bbDrop: React.PropTypes.number.isRequired,
+      bbHeight: React.PropTypes.number,
       seatTubeLength: React.PropTypes.number.isRequired,
       seatTubeAngle: React.PropTypes.number.isRequired,
       wheelbase: React.PropTypes.number.isRequired,
@@ -146,7 +163,10 @@ MeasurementsTable.propTypes = {
       wheelbase: React.PropTypes.number.isRequired,
       stack: React.PropTypes.number.isRequired,
       reach: React.PropTypes.number.isRequired,
-      centerFront: React.PropTypes.number.isRequired
+      centerFront: React.PropTypes.number.isRequired,
+      forkTrail: React.PropTypes.number.isRequired,
+      totalLength: React.PropTypes.number.isRequired,
+      bbHeight: React.PropTypes.number.isRequired
     }).isRequired
   })).isRequired,
   unselect: React.PropTypes.func.isRequired

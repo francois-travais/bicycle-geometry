@@ -1,7 +1,7 @@
 const bicycles = [{
-  name: 'salsa-vaya-2016-55',
+  name: 'salsa-vaya-2017-55',
   model: 'Vaya',
-  year: 2016,
+  year: 2017,
   brand: 'Salsa',
   size: '55cm',
   measures: {
@@ -19,12 +19,13 @@ const bicycles = [{
     forkOffset: 50,
     topTubeEffectiveLength: 550,
     stack: 609.1,
-    reach: 363.8
+    reach: 363.8,
+    headsetBottomHeight: 12
   }
 }, {
-  name: 'salsa-vaya-2016-57',
+  name: 'salsa-vaya-2017-57',
   model: 'Vaya',
-  year: 2016,
+  year: 2017,
   brand: 'Salsa',
   size: '57cm',
   measures: {
@@ -42,18 +43,19 @@ const bicycles = [{
     forkOffset: 50,
     topTubeEffectiveLength: 570,
     stack: 628,
-    reach: 372
+    reach: 372,
+    headsetBottomHeight: 12
   }
 }, {
-  name: 'specialized-sequoia-2016-56',
+  name: 'specialized-sequoia-2017-56',
   model: 'Sequoia',
-  year: 2016,
+  year: 2017,
   brand: 'Specialized',
   size: '56cm',
   measures: {
     rimDiameter: 622,
     // 700c x 42mm
-    wheelDiameter: 711,
+    wheelDiameter: 716,
     chainStayLength: 435.1,
     bbDrop: 66.5,
     bbHeight: 292.5,
@@ -68,18 +70,19 @@ const bicycles = [{
     stack: 584,
     reach: 396.9,
     centerFront: 626,
-    topTubeEffectiveLength: 570
+    topTubeEffectiveLength: 570,
+    headsetBottomHeight: 16
   }
 }, {
-  name: 'specialized-sequoia-2016-54',
+  name: 'specialized-sequoia-2017-54',
   model: 'Sequoia',
-  year: 2016,
+  year: 2017,
   brand: 'Specialized',
   size: '54cm',
   measures: {
     rimDiameter: 622,
     // 700c x 42mm
-    wheelDiameter: 711,
+    wheelDiameter: 716,
     chainStayLength: 435.2,
     bbDrop: 67,
     bbHeight: 292,
@@ -94,18 +97,19 @@ const bicycles = [{
     stack: 566,
     reach: 387.8,
     centerFront: 611,
-    topTubeEffectiveLength: 550
+    topTubeEffectiveLength: 550,
+    headsetBottomHeight: 16
   }
 }, {
-  name: 'genesis-croix-de-fer-2016-M',
+  name: 'genesis-croix-de-fer-2017-M',
   model: 'Croix de fer',
-  year: 2016,
+  year: 2017,
   brand: 'Genesis',
   size: 'M',
   measures: {
     rimDiameter: 622,
     // 700c x 35mm
-    wheelDiameter: 697,
+    wheelDiameter: 708,
     chainStayLength: 430.0,
     bbDrop: 73,
     seatTubeLength: 530,
@@ -117,7 +121,8 @@ const bicycles = [{
     forkOffset: 50,
     forkTrail: 66,
     stack: 591,
-    reach: 385
+    reach: 385,
+    headsetBottomHeight: 11
   }
 }, {
   name: 'genesis-croix-de-fer-2016-L',
@@ -128,7 +133,7 @@ const bicycles = [{
   measures: {
     rimDiameter: 622,
     // 700c x 35mm
-    wheelDiameter: 697,
+    wheelDiameter: 708,
     chainStayLength: 430.0,
     bbDrop: 73,
     seatTubeLength: 530,
@@ -140,7 +145,157 @@ const bicycles = [{
     forkOffset: 50,
     forkTrail: 66,
     stack: 610,
-    reach: 395
+    reach: 395,
+    headsetBottomHeight: 11
+  }
+}, {
+  name: 'specialized-awol-2017-M',
+  model: 'Awol',
+  year: 2017,
+  brand: 'Specialized',
+  size: 'M',
+  measures: {
+    rimDiameter: 622,
+    // 700c x 42mm
+    wheelDiameter: 730,
+    chainStayLength: 455,
+    bbDrop: 70,
+    bbHeight: 295.5,
+    seatTubeLength: 495,
+    seatTubeAngle: 73.5,
+    wheelbase: 1072,
+    headTubeLength: 185,
+    headTubeAngle: 72,
+    forkLength: 405,
+    forkOffset: 50,
+    forkTrail: 66,
+    stack: 617,
+    reach: 392,
+    centerFront: 626,
+    topTubeEffectiveLength: 575,
+    headsetBottomHeight: 5
+  }
+}, {
+  name: 'all-city-space-horse-disc-2017-55',
+  model: 'Space Horse Disc',
+  year: 2017,
+  brand: 'All City',
+  size: '55cm',
+  measures: {
+    rimDiameter: 622,
+    // 700c x 42mm
+    wheelDiameter: 708,
+    chainStayLength: 440,
+    bbDrop: 75,
+    seatTubeLength: 540,
+    seatTubeAngle: 73,
+    wheelbase: 1032.8,
+    headTubeLength: 150,
+    headTubeAngle: 72,
+    forkLength: 395,
+    forkOffset: 47,
+    stack: 589,
+    reach: 379,
+    topTubeEffectiveLength: 560,
+    headsetBottomHeight: 12
+  }
+}, {
+  name: 'soma-wolverine-2017-56',
+  model: 'Wolverine',
+  year: 2017,
+  brand: 'Soma',
+  size: '56cm',
+  measures: {
+    rimDiameter: 622,
+    // 700c x 42mm
+    wheelDiameter: 708,
+    // 425 to 446
+    chainStayLength: 425,
+    bbDrop: 70,
+    seatTubeLength: 560,
+    seatTubeAngle: 73.5,
+    wheelbase: 1040,
+    headTubeLength: 140,
+    headTubeAngle: 72,
+    forkLength: 400,
+    forkOffset: 50,
+    stack: 578,
+    reach: 404,
+    centerFront: 625,
+    topTubeEffectiveLength: 575,
+    headsetBottomHeight: 12
+  }
+}, {
+  name: 'soma-wolverine-2017-54',
+  model: 'Wolverine',
+  year: 2017,
+  brand: 'Soma',
+  size: '54cm',
+  measures: {
+    rimDiameter: 622,
+    // 700c x 42mm
+    wheelDiameter: 716,
+    // 425 to 446
+    chainStayLength: 425,
+    bbDrop: 70,
+    seatTubeLength: 540,
+    seatTubeAngle: 73.5,
+    wheelbase: 1035,
+    headTubeLength: 130,
+    headTubeAngle: 71.5,
+    forkLength: 400,
+    forkOffset: 50,
+    stack: 566,
+    reach: 395,
+    centerFront: 620,
+    topTubeEffectiveLength: 565,
+    headsetBottomHeight: 12
+  }
+}, {
+  name: 'colossi-dnjos-rambler-v2-55',
+  model: "D'N Jos Rambler",
+  year: 2017,
+  brand: 'Colossi',
+  size: '55cm',
+  measures: {
+    rimDiameter: 622,
+    // 700c x 42mm
+    wheelDiameter: 716,
+    chainStayLength: 425,
+    bbDrop: 65,
+    seatTubeLength: 550,
+    seatTubeAngle: 73.5,
+    wheelbase: 1001.8,
+    headTubeLength: 125,
+    headTubeAngle: 72,
+    forkLength: 400,
+    forkOffset: 55,
+    centerFront: 585,
+    headsetBottomHeight: 12
+  }
+}, {
+  name: 'surly-straggler-2017-54',
+  model: 'Straggler',
+  year: 2017,
+  brand: 'Surly',
+  size: '54cm',
+  measures: {
+    rimDiameter: 622,
+    wheelDiameter: 718,
+    chainStayLength: 425,
+    bbDrop: 72,
+    seatTubeLength: 540,
+    seatTubeAngle: 73,
+    wheelbase: 1016.5,
+    headTubeLength: 107,
+    headTubeAngle: 72,
+    forkLength: 400,
+    forkOffset: 44,
+    stack: 549.2,
+    reach: 396.3,
+    topTubeLength: 563.3,
+    topTubeEffectiveLength: 565,
+    headsetBottomHeight: 12
   }
 }];
 

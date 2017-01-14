@@ -297,6 +297,56 @@ const bicycles = [{
     topTubeEffectiveLength: 565,
     headsetBottomHeight: 12
   }
+}, {
+  name: 'surly-straggler-2017-56',
+  model: 'Straggler',
+  year: 2017,
+  brand: 'Surly',
+  size: '56cm',
+  measures: {
+    rimDiameter: 622,
+    wheelDiameter: 718,
+    chainStayLength: 430,
+    bbDrop: 72,
+    seatTubeLength: 560,
+    seatTubeAngle: 72.5,
+    wheelbase: 1031.9,
+    headTubeLength: 121,
+    headTubeAngle: 72,
+    forkLength: 400,
+    forkOffset: 44,
+    stack: 567.3,
+    reach: 400.7,
+    topTubeLength: 579.7,
+    topTubeEffectiveLength: 580,
+    headsetBottomHeight: 12
+  }
+}, {
+  name: 'Rawland-ravn-2017-56',
+  model: 'Ravn',
+  year: 2017,
+  brand: 'Rawland',
+  size: '56cm',
+  measures: {
+    rimDiameter: 622,
+    wheelDiameter: 718,
+    chainStayLength: 430,
+    bbDrop: 61,
+    bbHeight: 272,
+    seatTubeLength: 518,
+    seatTubeAngle: 73,
+    wheelbase: 1039,
+    headTubeLength: 150,
+    headTubeAngle: 73,
+    forkLength: 408,
+    forkOffset: 69,
+    forkTrail: 30,
+    stack: 580,
+    reach: 383,
+    topTubeLength: 579.7,
+    topTubeEffectiveLength: 560,
+    headsetBottomHeight: 12
+  }
 }];
 
 export default bicycles;

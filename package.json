@@ -6,7 +6,8 @@
   "scripts": {
     "build": "webpack",
     "watch": "webpack --progress --colors --watch",
-    "dev-c9": "webpack-dev-server --inline --host $IP --port $PORT",
+    "dev": "webpack-dev-server --inline -d",
+    "dev-c9": "webpack-dev-server -d --inline --host $IP --port $PORT",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -35,7 +36,7 @@
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },
-  "dependecies": {
+  "dependencies": {
     "bootstrap": "^3.3.7",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",

@@ -1,39 +1,42 @@
 .aligned-bicycles .ground {
-  stroke: black;
-  stroke-width: 5;
+    stroke: black;
+    stroke-width: 5;
 }
 
 .bicycle .wheel .tyre {
-  fill: transparent;
-  stroke: black;
+    fill: transparent;
+    stroke: black;
 }
 
 .bicycle .tube {
-  stroke-width: 3;
-  stroke: black;
+    stroke-width: 3;
+    stroke: black;
 }
 
 .tables .table .table-subtlt {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .bicycle.bicycle-1 .tube, .bicycle.bicycle-1 .wheel .tyre {
-  stroke: blue;
+    stroke: blue;
 }
+
 .tables .table th.bicycle-1 {
-  color: blue;
+    color: blue;
 }
 
 .bicycle.bicycle-2 .tube, .bicycle.bicycle-2 .wheel .tyre {
-  stroke: red;
+    stroke: red;
 }
+
 .tables .table th.bicycle-2 {
-  color: red;
+    color: red;
 }
 
 .bicycle.bicycle-3 .tube, .bicycle.bicycle-3 .wheel .tyre {
-  stroke: green;
+    stroke: green;
 }
+
 .tables .table th.bicycle-3 {
-  color: green;
+    color: green;
 }
